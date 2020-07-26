@@ -1,1 +1,1 @@
-# clear_find
+# clearfind
