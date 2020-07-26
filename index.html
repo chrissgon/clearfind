@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <!-- HEAD -->
+    <head>
+        <!-- META -->
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <!-- CSS -->
+        <link rel="stylesheet" href="css/reset.css">
+        <link rel="stylesheet" href="css/style.css">
+
+        <!-- ICONES -->
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/js/all.min.js">
+
+        <!-- TITLE -->
+        <title>Clear Find - Procura Limpa</title>
+    </head>
+    <!-- BODY -->
+    <body>
+        <!-- FILTRO -->
+        <section class="filtro">
+            <!-- logo -->
+            <header class="logo">
+                <img src="img/logo.png">
+            </header>
+            <!-- pesquisa -->
+            <div class="pesquisa">
+                <h1>Pesquise pelos seus produtos</h1>
+                <!-- input-group -->
+                <label for="search" class="input-group">
+                    <i class="material-icons">search</i>
+                    <input type="text" name="search" id="search" placeholder="Nome do produto">
+                    <i class="material-icons clear">close</i>
+                </label>
+            </div>
+        </section>
+
+        <!-- RESULTADOS -->
+        <section class="resultados">
+            <header class="header">
+                <h4>Meus Produtos</h4>
+                <div class="acoes">
+                    <a class="btn-acao" id="delete"><i class="material-icons">close</i>Excluir</a>
+                    <a class="btn-acao" id="create"><i class="material-icons">add</i>Novo</a>
+                </div>
+            </header>
+            <!-- tabela -->
+            <div class="tabela">
+                <!-- header -->
+                <header class="header">
+                    <div class="th checkbox" id="all">
+                        <span><i class="material-icons">check_box_outline_blank</i></span>
+                        <input type="checkbox" name="all">
+                    </div>
+
+                    <div class="th"><strong>Nome</strong></div>
+                    <div class="th"><strong>Descrição</strong></div>
+                    <div class="th"><strong>Preço</strong></div>
+                    <div class="th"><strong>Quantidade</strong></div>
+                    <div class="th"></div>
+                </header>
+
+                <!-- registros -->
+                <div class="registros">
+                    
+                </div>
+            </div>
+        </section>     
+        
+        <!-- CONTAINER-MODAL -->
+        <section class="container-modal">
+
+            <!-- modalCreate -->
+            <form class="modal" id="modalCreate">
+                <!-- header -->
+                <header class="header">
+                    <h4>Novo Produto</h4>
+                </header>
+                <!-- body -->
+                <article class="body">
+                    <!-- input-group -->
+                    <label for="imagem-create" class="input-group file">
+                        <input type="file" name="imagem" id="imagem-create" accept=".png,.jpeg,.jpg">
+                        <span class="file-input">Selecione uma imagem</span>
+                        <i class="material-icons btn-primary">save_alt</i>
+                    </label>
+                    <!-- input-group -->
+                    <label for="nome-create" class="input-group">
+                        <input type="text" name="nome" id="nome-create" placeholder="Nome">
+                    </label>
+                    <!-- input-group -->
+                    <label for="descricao-create" class="input-group">
+                        <textarea name="descricao" id="descricao-create" rows="5" placeholder="Descrição"></textarea>
+                    </label>
+                    <!-- input-group -->
+                    <label class="input-group multiple">
+                        <input type="text" name="preco" id="preco-create" placeholder="Preço">
+                        <input type="number" min="1" name="quantidade" id="quantidade-create" placeholder="Quantidade">
+                    </label>
+                </article>
+                <!-- footer -->
+                <footer class="footer">
+                    <a class="btn-default exit">Cancelar</a>
+                    <input type="submit" class="btn-primary" value="Criar">
+                </footer>
+            </form>
+            
+            <!-- modalEdit -->
+            <form class="modal" id="modalEdit">
+                <!-- header -->
+                <header class="header">
+                    <h4>Edição do <span>Item</span></h4>
+                </header>
+                <!-- body -->
+                <article class="body">
+                    <!-- input hidden -->
+                    <input type="hidden" name="id" id="id-edit">
+                    <!-- input-group -->
+                    <label for="imagem-edit" class="input-group file">
+                        <input type="file" name="imagem" id="imagem-edit" accept=".png,.jpeg,.jpg">
+                        <span class="file-input">Selecione uma imagem</span>
+                        <i class="material-icons btn-primary">save_alt</i>
+                    </label>
+                    <!-- input-group -->
+                    <label for="nome" class="input-group">
+                        <input type="text" name="nome" id="nome-edit" placeholder="Nome">
+                    </label>
+                    <!-- input-group -->
+                    <label for="descricao" class="input-group">
+                        <textarea name="descricao" id="descricao-edit" rows="5" placeholder="Descrição"></textarea>
+                    </label>
+                    <!-- input-group -->
+                    <label class="input-group multiple">
+                        <input type="text" name="preco" id="preco-edit" placeholder="Preço">
+                        <input type="number" min="1" name="quantidade" id="quantidade-edit" placeholder="Quantidade">
+                    </label>
+                </article>
+                <!-- footer -->
+                <footer class="footer">
+                    <a class="btn-default exit">Cancelar</a>
+                    <input type="submit" class="btn-primary" value="Editar">
+                </footer>
+            </form>
+            
+            <!-- modalDelete -->
+            <form class="modal" id="modalDelete">
+                <!-- header -->
+                <header class="header">
+                    <h4>Exclusão de itens</h4>
+                </header>
+                <!-- body -->
+                <article class="body">
+                    <!-- input hidden -->
+                    <input type="hidden" name="id" id="id-delete">
+                    <p>Certeza que deseja excluir os itens selecionados?</p>
+                </article>
+                <!-- footer -->
+                <footer class="footer">
+                    <a class="btn-default exit">Cancelar</a>
+                    <input type="submit" class="btn-danger" value="Excluir">
+                </footer>
+            </form>
+        </section>
+    
+        <!-- SCRIPTS -->
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="js/jquery.maskMoney.min.js"></script>
+        <script src="js/script.js"></script>
+    </body>
+</html>
+
+
